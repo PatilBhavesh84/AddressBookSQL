@@ -41,3 +41,39 @@ mysql> describe addressbook;
 | email       | varchar(50)  | NO   |     | NULL    |       |
 +-------------+--------------+------+-----+---------+-------+
 8 rows in set (0.00 sec)
+
+mysql> /****UC3****/
+mysql>
+mysql> CREATE TABLE addressbook
+    ->  (firstName varchar(20) NOT NULL, lastName varchar(20) NOT NULL, address varchar(100) NOT NULL, city varchar(30) NOT NULL, state varchar(30) NOT NULL, zip varchar(10) NOT NULL, phoneNumber varchar(20) NOT NULL, email varchar(50)NOT NULL, PRIMARY KEY (firstName));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe addressbook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(20)  | NO   | PRI | NULL    |       |
+| lastName    | varchar(20)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(30)  | NO   |     | NULL    |       |
+| state       | varchar(30)  | NO   |     | NULL    |       |
+| zip         | varchar(10)  | NO   |     | NULL    |       |
+| phoneNumber | varchar(20)  | NO   |     | NULL    |       |
+| email       | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
+
+mysql> INSERT INTO addressbook (firstName,lastName,address,city,state,zip,phoneNumber,email) VALUES('Bhavesh','Patil','Jalaram nagar','Nizar','Gujrat','394370','7709364334','bhavesh@gmail.com'),('Yogesh','Dhangar','Fc road','Pune','Maharashtra','456123','9978415263','yogesh@gmail.com'),('Vinay','Shimpi','Vasant nagar','Shahada','Maharashtra','425409','8855441343','vinay@gmail.com'),('Ritik','Manglani','Sindhi colony','Nandurbar','Maharashtra','425412','999922288','ritik@gmail.com');
+Query OK, 4 rows affected (0.01 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+| firstName | lastName | address       | city      | state       | zip    | phoneNumber | email             |
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+| Bhavesh   | Patil    | Jalaram nagar | Nizar     | Gujrat      | 394370 | 7709364334  | bhavesh@gmail.com |
+| Ritik     | Manglani | Sindhi colony | Nandurbar | Maharashtra | 425412 | 999922288   | ritik@gmail.com   |
+| Vinay     | Shimpi   | Vasant nagar  | Shahada   | Maharashtra | 425409 | 8855441343  | vinay@gmail.com   |
+| Yogesh    | Dhangar  | Fc road       | Pune      | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+4 rows in set (0.00 sec)
