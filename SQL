@@ -150,3 +150,14 @@ mysql> SELECT state,COUNT(state) ascount from addressbook group by state;
 | Maharashtra |       2 |
 +-------------+---------+
 2 rows in set (0.00 sec)
+
+mysql> /****UC8***/
+mysql> SELECT firstName from addressbook ORDER by city;
++-----------+
+| firstName |
++-----------+
+| Yogesh    |
+| Bhavesh   |
+| Vinay     |
++-----------+
+3 rows in set (0.00 sec)
