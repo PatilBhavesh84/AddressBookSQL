@@ -237,3 +237,72 @@ mysql> select * from addressbook;
 +-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
 3 rows in set (0.00 sec)
 
+
+
+mysql> /*****UC12****/
+
+
+mysql> CREATE TABLE contact(firstName varchar (50) NOT NULL,lastName varchar(50) NOT NULL,phoneNumber varchar(20) NOT NULL, email varchar (50) NOT NULL,PRIMARY KEY(firstName));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc contact;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| firstName   | varchar(50) | NO   | PRI | NULL    |       |
+| lastName    | varchar(50) | NO   |     | NULL    |       |
+| phoneNumber | varchar(20) | NO   |     | NULL    |       |
+| email       | varchar(50) | NO   |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.00 sec)
+
+mysql> CREATE TABLE address(zip varchar (10) NOT NULL,city varchar(50) NOT NULL,state varchar(50) NOT NULL,primary key(zip));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc address;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| zip   | varchar(10) | NO   | PRI | NULL    |       |
+| city  | varchar(50) | NO   |     | NULL    |       |
+| state | varchar(50) | NO   |     | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+3 rows in set (0.00 sec)
+
+mysql> CREATE TABLE contact_address(firstName varchar(50) NOT NULL,zip varchar(10) NOT NULL,forign key (firstname) references contact(firstname),foreign key (zip) references address(zip));
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key (firstname) references contact(firstname),foreign key (zip) references addre' at line 1
+mysql> CREATE TABLE contact_address(firstName varchar(50) NOT NULL,zip varchar(10) NOT NULL,foreign key (firstname) references contact(firstname),foreign key (zip) references address(zip));
+Query OK, 0 rows affected (0.07 sec)
+
+mysql> desc contact_address;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| firstName | varchar(50) | NO   | MUL | NULL    |       |
+| zip       | varchar(10) | NO   | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
+mysql> CREATE TABLE relation (type varchar (20) ,primary key(type));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc relation;
++-------+-------------+------+-----+---------+-------+
+| Field | Type        | Null | Key | Default | Extra |
++-------+-------------+------+-----+---------+-------+
+| type  | varchar(20) | NO   | PRI | NULL    |       |
++-------+-------------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+mysql> CREATE TABLE contact_relation (firstName varchar(20) NOT NULL,type varchar(20),foreign key(firstName) references contact(firstName),foreign key(type) references relation(type));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc contact_relation;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| firstName | varchar(20) | NO   | MUL | NULL    |       |
+| type      | varchar(20) | YES  | MUL | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+2 rows in set (0.00 sec)
+
