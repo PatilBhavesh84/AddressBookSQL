@@ -219,4 +219,21 @@ mysql> select type,Count(type) from addressbook group by type;
 +-----------+-------------+
 3 rows in set (0.00 sec)
 
+
+mysql> /*****UC11*****/
+
 mysql>
+mysql> update addressbook set type = 'Doctor' where firstName = 'Yogesh';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+| firstName | lastName | type      | address       | city    | state       | zip    | phoneNumber | email             |
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+| Bhavesh   | Patil    | Engineer  | Jalaram nagar | Nizar   | Gujrat      | 394370 | 7709364334  | bhavesh@gmail.com |
+| Vinay     | Shimpi   | architect | Vasant nagar  | Shahada | Maharashtra | 425409 | 8855441343  | vinay@gmail.com   |
+| Yogesh    | Dhangar  | Doctor    | Fc road       | Dhule   | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+3 rows in set (0.00 sec)
+
