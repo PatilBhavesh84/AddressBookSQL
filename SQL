@@ -96,3 +96,19 @@ mysql> select * from addressbook;
 +-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
 4 rows in set (0.00 sec)
 
+mysql> /*****UC5*****/
+
+mysql> DELETE from addressbook where firstName='Ritik';
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from addressbook;
++-----------+----------+---------------+---------+-------------+--------+-------------+-------------------+
+| firstName | lastName | address       | city    | state       | zip    | phoneNumber | email             |
++-----------+----------+---------------+---------+-------------+--------+-------------+-------------------+
+| Bhavesh   | Patil    | Jalaram nagar | Nizar   | Gujrat      | 394370 | 7709364334  | bhavesh@gmail.com |
+| Vinay     | Shimpi   | Vasant nagar  | Shahada | Maharashtra | 425409 | 8855441343  | vinay@gmail.com   |
+| Yogesh    | Dhangar  | Fc road       | Dhule   | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
++-----------+----------+---------------+---------+-------------+--------+-------------+-------------------+
+3 rows in set (0.00 sec)
+
+
