@@ -161,3 +161,48 @@ mysql> SELECT firstName from addressbook ORDER by city;
 | Vinay     |
 +-----------+
 3 rows in set (0.00 sec)
+
+mysql> /***UC9***/
+
+mysql> alter table addressbook add type varchar(20) after lastName;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc addressbook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(20)  | NO   | PRI | NULL    |       |
+| lastName    | varchar(20)  | NO   |     | NULL    |       |
+| type        | varchar(20)  | YES  |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(30)  | NO   |     | NULL    |       |
+| state       | varchar(30)  | NO   |     | NULL    |       |
+| zip         | varchar(10)  | NO   |     | NULL    |       |
+| phoneNumber | varchar(20)  | NO   |     | NULL    |       |
+| email       | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+9 rows in set (0.00 sec)
+
+mysql> update addressbook set type = 'Engineer' where firstName ='Bhavesh';
+Query OK, 1 row affected (0.04 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set type = 'architect' where firstName ='Vinay';
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> update addressbook set type = 'family' where firstName ='Yogesh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+| firstName | lastName | type      | address       | city    | state       | zip    | phoneNumber | email             |
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+| Bhavesh   | Patil    | Engineer  | Jalaram nagar | Nizar   | Gujrat      | 394370 | 7709364334  | bhavesh@gmail.com |
+| Vinay     | Shimpi   | architect | Vasant nagar  | Shahada | Maharashtra | 425409 | 8855441343  | vinay@gmail.com   |
+| Yogesh    | Dhangar  | family    | Fc road       | Dhule   | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
++-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
+3 rows in set (0.00 sec)
+
