@@ -206,3 +206,17 @@ mysql> select * from addressbook;
 +-----------+----------+-----------+---------------+---------+-------------+--------+-------------+-------------------+
 3 rows in set (0.00 sec)
 
+
+mysql> /****UC10****/
+mysql>
+mysql> select type,Count(type) from addressbook group by type;
++-----------+-------------+
+| type      | Count(type) |
++-----------+-------------+
+| Engineer  |           1 |
+| architect |           1 |
+| family    |           1 |
++-----------+-------------+
+3 rows in set (0.00 sec)
+
+mysql>
