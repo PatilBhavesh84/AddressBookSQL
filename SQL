@@ -21,3 +21,23 @@ mysql> SELECT DATABASE();
 +----------------------+
 1 row in set (0.00 sec)
 
+mysql> /****UC2****/
+mysql>
+mysql> CREATE TABLE addressbook
+    ->  (firstName varchar(20) NOT NULL, lastName varchar(20) NOT NULL, address varchar(100) NOT NULL, city varchar(30) NOT NULL, state varchar(30) NOT NULL, zip varchar(10) NOT NULL, phoneNumber varchar(20) NOT NULL, email varchar(50)NOT NULL, PRIMARY KEY (firstName));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> describe addressbook;
++-------------+--------------+------+-----+---------+-------+
+| Field       | Type         | Null | Key | Default | Extra |
++-------------+--------------+------+-----+---------+-------+
+| firstName   | varchar(20)  | NO   | PRI | NULL    |       |
+| lastName    | varchar(20)  | NO   |     | NULL    |       |
+| address     | varchar(100) | NO   |     | NULL    |       |
+| city        | varchar(30)  | NO   |     | NULL    |       |
+| state       | varchar(30)  | NO   |     | NULL    |       |
+| zip         | varchar(10)  | NO   |     | NULL    |       |
+| phoneNumber | varchar(20)  | NO   |     | NULL    |       |
+| email       | varchar(50)  | NO   |     | NULL    |       |
++-------------+--------------+------+-----+---------+-------+
+8 rows in set (0.00 sec)
