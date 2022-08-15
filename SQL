@@ -306,3 +306,30 @@ mysql> desc contact_relation;
 +-----------+-------------+------+-----+---------+-------+
 2 rows in set (0.00 sec)
 
+
+mysql>  /*****UC13****/
+
+
+
+
+mysql> select count(contact.firstName)from contact,contact_address,address where contact.firstName=contact_adderss.firstName and contact_address.zip=address.zip and address.state='Gujrat';
+ERROR 1054 (42S22): Unknown column 'contact_adderss.firstName' in 'where clause'
+mysql> select count(contact.firstName) from contact,contact_address,address where contact.firstName = contact_address.firstName and contact_address.zip = address.zip and address.state = 'Gujrat';
++--------------------------+
+| count(contact.firstName) |
++--------------------------+
+|                        0 |
++--------------------------+
+1 row in set (0.04 sec)
+
+mysql> select count(contact.firstName) from contact,contact_address,address where contact.firstName = contact_address.firstName and contact_address.zip = address.zip and address.state = 'Maharashtra';
++--------------------------+
+| count(contact.firstName) |
++--------------------------+
+|                        0 |
++--------------------------+
+1 row in set (0.00 sec)
+
+mysql> select type,Count(firstName) from contact_relation group by type;
+Empty set (0.04 sec)
+
