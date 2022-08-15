@@ -77,3 +77,22 @@ mysql> select * from addressbook;
 | Yogesh    | Dhangar  | Fc road       | Pune      | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
 +-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
 4 rows in set (0.00 sec)
+
+
+mysql> /*****UC4******/
+mysql>
+mysql> UPDATE addressbook set city='Dhule' where firstName = 'Yogesh';
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from addressbook;
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+| firstName | lastName | address       | city      | state       | zip    | phoneNumber | email             |
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+| Bhavesh   | Patil    | Jalaram nagar | Nizar     | Gujrat      | 394370 | 7709364334  | bhavesh@gmail.com |
+| Ritik     | Manglani | Sindhi colony | Nandurbar | Maharashtra | 425412 | 999922288   | ritik@gmail.com   |
+| Vinay     | Shimpi   | Vasant nagar  | Shahada   | Maharashtra | 425409 | 8855441343  | vinay@gmail.com   |
+| Yogesh    | Dhangar  | Fc road       | Dhule     | Maharashtra | 456123 | 9978415263  | yogesh@gmail.com  |
++-----------+----------+---------------+-----------+-------------+--------+-------------+-------------------+
+4 rows in set (0.00 sec)
+
