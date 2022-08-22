@@ -269,8 +269,6 @@ mysql> desc address;
 +-------+-------------+------+-----+---------+-------+
 3 rows in set (0.00 sec)
 
-mysql> CREATE TABLE contact_address(firstName varchar(50) NOT NULL,zip varchar(10) NOT NULL,forign key (firstname) references contact(firstname),foreign key (zip) references address(zip));
-ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'key (firstname) references contact(firstname),foreign key (zip) references addre' at line 1
 mysql> CREATE TABLE contact_address(firstName varchar(50) NOT NULL,zip varchar(10) NOT NULL,foreign key (firstname) references contact(firstname),foreign key (zip) references address(zip));
 Query OK, 0 rows affected (0.07 sec)
 
